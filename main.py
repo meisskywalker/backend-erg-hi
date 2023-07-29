@@ -7,8 +7,8 @@ load_dotenv()
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# from app import models
-# from app.db import engine
+from app import models
+from app.db import engine
 # from app.routers import product, user, auth, about_us, contact_us
 
 app = FastAPI()
@@ -28,8 +28,8 @@ def root():
     return { 'detail': os.environ.get("DB_URI") }
 
 
-# models.Base.metadata.create_all(bind=engine)
-#
+models.Base.metadata.create_all(bind=engine)
+
 # app.include_router(auth.router)
 # app.include_router(product.router)
 # # app.include_router(image.router)
