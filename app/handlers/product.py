@@ -3,8 +3,8 @@ from fastapi import HTTPException, status
 from pydantic import UUID4
 from sqlalchemy.orm import Session
 
-from app import models, schemas
-from app import tf_idf
+import models, schemas
+import tf_idf
 
 product_model = models.Product
 

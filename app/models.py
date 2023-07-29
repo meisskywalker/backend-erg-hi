@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy import UUID, Column, Integer, String
-from app.db import Base
+from db import Base
 
 
 class Product(Base):

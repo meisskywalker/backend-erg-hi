@@ -2,7 +2,7 @@ import os
 from typing import List
 from fastapi import APIRouter, Depends, File, UploadFile, status
 from .. import schemas
-from app import oauth2
+from .. import oauth2
 from ..handlers import image
 
 router = APIRouter(prefix="/images", tags=["Images"])
