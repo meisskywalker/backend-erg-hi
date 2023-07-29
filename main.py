@@ -5,11 +5,11 @@ import os
 load_dotenv()
 
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+# from fastapi.middleware.cors import CORSMiddleware
 
-from app import models
-from app.db import engine
-from app.routers import product, user, auth, about_us, contact_us
+# from app import models
+# from app.db import engine
+# from app.routers import product, user, auth, about_us, contact_us
 
 app = FastAPI()
 
@@ -17,15 +17,15 @@ app = FastAPI()
 def root():
     return { 'detail': os.environ.get("DB_URI") }
 
-origins = ["http://localhost:5173", "https://erg-hi.netlify.app"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# origins = ["http://localhost:5173", "https://erg-hi.netlify.app"]
+#
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 # models.Base.metadata.create_all(bind=engine)
 #
