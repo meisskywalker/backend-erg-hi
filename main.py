@@ -24,11 +24,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get('/')
-def root():
-    return { 'detail': os.environ.get("DB_URI") }
-
-
 models.Base.metadata.create_all(bind=engine)
 
 app.include_router(auth.router)
