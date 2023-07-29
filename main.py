@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app import models
 from app.db import engine
-from app.routers import product, user, auth, hero, about_us, contact_us, image
+from app.routers import product, user, auth, about_us, contact_us
 
 app = FastAPI()
 
