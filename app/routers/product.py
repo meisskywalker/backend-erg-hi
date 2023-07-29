@@ -1,10 +1,12 @@
+import os
 from fastapi import APIRouter, Depends, File, HTTPException, status, UploadFile
 from pydantic import UUID4
 from sqlalchemy.orm import Session
-import oauth2
 
-from handlers import product
-import db, schemas, models
+from app import oauth2
+
+from ..handlers import product
+from .. import db, schemas, models
 
 product_model = models.Product
 

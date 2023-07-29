@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, status
 from pydantic import UUID4
 from sqlalchemy.orm import Session
-from .. import db, schemas
-import oauth2
+from .. import db, schemas, models
+from app import oauth2
 from ..handlers import about_us
 
 get_db = db.get_db

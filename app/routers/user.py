@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, status
 from pydantic import UUID4
 from sqlalchemy.orm import Session
-from .. import schemas
+from app import schemas
 
-from handlers import user
+from app.handlers import user
 
 from .. import db
 

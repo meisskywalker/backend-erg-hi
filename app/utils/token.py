@@ -2,7 +2,7 @@ from jose import jwt, JWTError
 from datetime import datetime, timedelta
 import os
 
-import schemas
+from app import schemas
 
 
 def create_token(data: dict):
