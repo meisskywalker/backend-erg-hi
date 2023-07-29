@@ -10,7 +10,7 @@ def create_token(data: dict):
     # expire = datetime.utcnow() + timedelta(minutes=int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")))
     # to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(
-        to_encode, os.getenv("SECRET_KEY"), algorithm=os.getenv("ALGORITHM")
+        to_encode, os.environ.get("SECRET_KEY"), algorithm=os.environ.get("ALGORITHM")
     )
 
     return encoded_jwt
@@ -19,7 +19,7 @@ def create_token(data: dict):
 def verify_token(token: str, credential_exception):
     try:
         payload = jwt.decode(
-            token, os.getenv("SECRET_KEY"), algorithms=[os.getenv("ALGORITHM")]
+            token, os.environ.get("SECRET_KEY"), algorithms=[os.environ.get("ALGORITHM")]
         )
         email = payload.get("sub")
         if email is None:
