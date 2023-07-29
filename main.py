@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import uvicorn
+import os
 
 load_dotenv()
 
@@ -12,6 +13,10 @@ from app.routers import product, user, auth, about_us, contact_us
 
 app = FastAPI()
 
+@app.get('/')
+def root():
+    return { 'detail': os.environ.get("DB_URI") }
+
 origins = ["http://localhost:5173", "https://erg-hi.netlify.app"]
 
 app.add_middleware(
@@ -22,15 +27,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-models.Base.metadata.create_all(bind=engine)
-
-app.include_router(auth.router)
-app.include_router(product.router)
-# app.include_router(image.router)
-app.include_router(user.router)
-# app.include_router(hero.router)
-app.include_router(about_us.router)
-app.include_router(contact_us.router)
+# models.Base.metadata.create_all(bind=engine)
+#
+# app.include_router(auth.router)
+# app.include_router(product.router)
+# # app.include_router(image.router)
+# app.include_router(user.router)
+# # app.include_router(hero.router)
+# app.include_router(about_us.router)
+# app.include_router(contact_us.router)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
